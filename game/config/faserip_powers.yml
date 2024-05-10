@@ -1,0 +1,8 @@
+---
+faserip:
+  powers:
+  - name: Superpower No 1
+    desc: Some desc
+  - name: Flying
+    desc: Another desc.
+  powers_blurb: This is some text about powers.

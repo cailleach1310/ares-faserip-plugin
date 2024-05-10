@@ -1,0 +1,138 @@
+ {{#if this.char.reset_needed}}
+     <div class="cg-tip"><AnsiFormat @text="You need to reset your abilities first!" /></div>
+
+        <div class="action-buttons">
+           <button name="reset" {{action 'resetFaseripAbilities' this.name}} class="btn btn-secondary">Reset Abilities</button>
+        </div>
+    {{else}}
+
+     <ul class="nav nav-tabs" role="tablist">
+
+           <li role="presentation" class="nav-item"><a href="#faseripattrs" aria-controls="faseripattrs" role="tab" data-bs-toggle="tab" class="nav-link active">Attributes</a></li>
+           <li role="presentation" class="nav-item"><a href="#faseripskills" aria-controls="faseripskills" role="tab" data-bs-toggle="tab" class="nav-link">Skills</a></li>
+           <li role="presentation" class="nav-item"><a href="#faserippowers" aria-controls="faserippowers" role="tab" data-bs-toggle="tab" class="nav-link">Powers</a></li>
+           <li role="presentation" class="nav-item"><a href="#faseripadvantages" aria-controls="faseripadvantages" role="tab" data-bs-toggle="tab" class="nav-link">Advantages</a></li>
+           <li role="presentation" class="nav-item"><a href="#faseripdisadvantages" aria-controls="faeripdisadvantages" role="tab" data-bs-toggle="tab" class="nav-link">Disadvantages</a></li>
+         </ul>
+
+  <div class="tab-content">
+  
+  <div role="tabpanel" class="tab-pane active" id="faseripattrs">
+
+  <div class="card card-default">
+       <div class="card-heading">
+           Primary Attributes
+       </div>
+   <div class="card-body">
+
+     <p class="cg-tip"><AnsiFormat @text={{this.cg_info.attrs_blurb}} /></p>
+  <div class="row">
+  <div class="col col-md-6 col-sm-12">
+   <table class="char-ability-list">
+    {{#each this.char.attrs as |att index|}}
+  {{#if (lt index 5)}}
+     <FaseripAttrbox @rank={{att.rank}} @attrRanks={{this.cg_info.attr_ranks}} @name={{att.name}} @updated={{action "abilityChanged"}}>
+         <b>{{att.name}}</b> - {{att.desc}}
+     </FaseripAttrbox>
+  {{/if}}
+  {{/each}}
+  </table>
+  </div>
+  <div class="col col-md-6 col-sm-12">
+  <table class="char-ability-list">
+  {{#each this.char.attrs as |att index|}}
+  {{#if (gt index 4)}}
+     <FaseripAttrbox @rank={{att.rank}} @attrRanks={{this.cg_info.attr_ranks}} @name={{att.name}} @updated={{action "abilityChanged"}}>
+         <b>{{att.name}}</b> - {{att.desc}}
+     </FaseripAttrbox>
+  {{/if}}
+  {{/each}}
+</table>
+</div>
+</div>
+</div>
+</div>
+  <div class="card card-default">
+       <div class="card-heading">
+           Secondary Attributes
+       </div>
+   <div class="card-body">
+  <div class="row">
+  <div class="col col-md-6 col-sm-12">
+   <table class="char-ability-list">
+    {{#each this.char.secondary_attributes as |att index|}}
+    {{#if (lt index 1)}}
+     <FaseripSecbox @rank={{att.rank}}>
+         <b>{{att.name}}</b>
+     </FaseripSecbox>
+    {{/if}}
+    {{/each}}
+   </table>
+   </div>
+   
+  <div class="col col-md-6 col-sm-12">
+   <table class="char-ability-list">
+    {{#each this.char.secondary_attributes as |att index|}}
+    {{#if (gt index 0)}}
+     <FaseripSecbox @rank={{att.rank}}>
+         <b>{{att.name}}</b>
+     </FaseripSecbox>
+    {{/if}}
+    {{/each}}
+   </table>
+   </div>
+   </div>
+   </div>
+  </div>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="faseripskills">
+  <div class="card card-default">
+       <div class="card-heading">
+           Skills
+       </div>
+   <div class="card-body">
+
+     <p class="cg-tip"><AnsiFormat @text={{this.cg_info.skills_blurb}} /></p>
+  <div class="row">
+  <div class="col col-md-6 col-sm-12">
+   <table class="char-ability-list">
+    {{#each this.char.skills as |skill index|}}
+  {{#if (lt index 5)}}
+     <FaseripSkillbox @rank={{skill.rank}} @skillRanks={{this.cg_info.skill_ranks}} @name={{skill.name}} @updated={{action "abilityChanged"}}>
+         <b>{{skill.name}}</b> - {{skill.desc}}
+     </FaseripSkillbox>
+  {{/if}}
+  {{/each}}
+  </table>
+  </div>
+  <div class="col col-md-6 col-sm-12">
+  <table class="char-ability-list">
+  {{#each this.char.skills as |skill index|}}
+  {{#if (gt index 4)}}
+     <FaseripSkillbox @rank={{skill.rank}} @skillRanks={{this.cg_info.skill_ranks}} @name={{skill.name}} @updated={{action "abilityChanged"}}>
+         <b>{{skill.name}}</b> - {{skill.desc}}
+     </FaseripSkillbox>
+  {{/if}}
+  {{/each}}
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+  <div role="tabpanel" class="tab-pane" id="faseripadvantages">
+  <FaseripChargenOption @type="advantage" @blurb={{this.cg_info.advantages_blurb}} @opList={{this.cg_info.advantages}} @charList={{this.char.advantages}} />
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="faseripdisadvantages">
+  <FaseripChargenOption @type="disadvantage" @blurb={{this.cg_info.disadvantages_blurb}} @opList={{this.cg_info.disadvantages}} @charList={{this.char.disadvantages}} />
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="faserippowers">
+  <FaseripChargenPower @powerRanks={{this.cg_info.attr_ranks}} @blurb={{this.cg_info.powers_blurb}} @opList={{this.cg_info.powers}} @charList={{this.char.powers}} />
+  </div>
+
+ </div>
+{{/if}}

@@ -1,0 +1,36 @@
+  <div class="card card-default">
+       <div class="card-heading">
+          Skills
+       </div>
+   <div class="card-body">
+
+     <p class="cg-tip"><AnsiFormat @text={{this.blurb}} /></p>
+
+     {{#each this.charList as |skill|}}
+     {{#unless (eq skill.rank 0)}}
+      {{#each this.char.skills as |skill|}}
+       <FaseripSkillbox @rank={{skill.rank}} @skillRanks={{this.skillRanks}} @name={{skill.name}} @updated={{action "abilityChanged"}}>
+           <b>{{skill.name}}</b> - {{skill.desc}}
+       </FaseripSkillbox>
+     {{/each}}
+     {{/unless}}
+     {{/each}}
+     <br>
+     Points spent:
+     <br>
+     <br>
+     <button class="btn btn-primary" id="addskill" {{action (mut this.selectSkill) true}}>Add Skill</button>
+
+   </div>
+  </div>
+
+<BsModalSimple @title="Add Skill" @closeTitle="Cancel" @submitTitle="Add" @size={{null}} @fade={{true}} @open={{this.selectSkill}} @onSubmit={{action "addSkill"}} @onHide={{action (mut this.selectSkill) false}}>
+    <p>Choose one skill from the dropdown list below.</p>
+       <select onchange={{action (mut this.skillString) value="target.value"}}>
+       {{#each this.skillList as |skill|}}
+           <option value={{skill.name}}>{{skill.name}}</option>
+       {{/each}}
+       </select>
+    <br><br>
+       <i>{{this.skillDesc}}</i>
+  </BsModalSimple>

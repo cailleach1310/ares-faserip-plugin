@@ -1,0 +1,27 @@
+<div class="row fs3-abilitybox"> 
+  <div class="col col-sm-2">
+    {{yield}}
+  </div>
+  <div class="col col-sm-3">
+    <div class="fs3-rating-control">
+      <div class="fs3-rating-display">
+         <PowerSelect @selected={{this.selectedRank}} @searchEnabled=true @searchField="short" @options={{this.ranks}} @onChange={{action "abilityChanged"}} as |r|>
+          {{r.short}} <i>({{r.name}})</i>
+         </PowerSelect>
+      </div>
+    </div>
+   </div>
+   <div class="col col-sm-6">
+      {{this.notes}}
+   </div>
+   <div class="col col-sm-1">
+      <button class="fs3-skillbutton" {{action "edit"}}>Edit</button>
+   </div>    
+</div>
+
+<BsModalSimple @title="Edit {{this.name}}" @closeTitle="Cancel" @submitTitle="Update" @size={{null}} @fade={{true}} @open={{this.editPower}} @onSubmit={{action "update"}} @onHide={{action (mut this.editPower) false}}>
+     <p><i>{{this.powerDesc}}</i></p>
+    <br><br>
+    <p>Notes:</p>
+     <Input @type="text" size={{200}} id="powerNotes" @enter={{action "update"}} @value={{this.powerNotes}} />
+  </BsModalSimple>

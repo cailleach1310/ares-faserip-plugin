@@ -1,0 +1,36 @@
+  <div class="card card-default">
+       <div class="card-heading">
+          Powers
+       </div>
+   <div class="card-body">
+
+     <p class="cg-tip"><AnsiFormat @text={{this.blurb}} /></p>
+
+     {{#each this.charList as |option|}}
+     {{#unless (eq option.rank 0)}}
+     <FaseripPowerbox @rank={{option.rank}} @notes={{option.notes}} @name={{option.name}} @ranks={{this.powerRanks}} @list={{this.opList}} @updated={{action "abilityChanged"}} >
+         <b>{{option.name}}</b>
+     </FaseripPowerbox>
+     {{/unless}}
+     {{/each}}
+     <br>
+     Points spent: {{this.powerPoints}}
+     <br>
+     <br>
+     <button class="btn btn-primary" id="addpow" {{action (mut this.selectPower) true}}>Add Power</button>
+
+   </div>
+  </div>
+
+<BsModalSimple @title="Add Power" @closeTitle="Cancel" @submitTitle="Add" @size={{null}} @fade={{true}} @open={{this.selectPower}} @onSubmit={{action "addPower"}} @onHide={{action (mut this.selectPower) false}}>
+    <p>Choose one {{this.type}} from the dropdown list below, specify a level and add an explanation.</p>
+       <select onchange={{action (mut this.powerString) value="target.value"}}>
+       {{#each this.opList as |opt|}}
+           <option value={{opt.name}}>{{opt.name}}</option>
+       {{/each}}
+       </select>
+       <i>{{this.powerDesc}}</i>
+    <br><br>
+    <p>Notes:</p>
+    <Input @type="text" size={{200}} id="powerNotes" @enter={{action "addPower"}} @value={{this.powerNotes}} />
+  </BsModalSimple>

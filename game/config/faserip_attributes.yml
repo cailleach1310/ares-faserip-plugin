@@ -1,0 +1,53 @@
+---
+faserip:
+  attributes_blurb: This is some text.
+  attribute_ranks:
+  - name: Feeble
+    short: FB
+    value: 1
+  - name: Poor
+    short: PR
+    value: 3
+  - name: Typical
+    short: TY
+    value: 5
+  - name: Good
+    short: GO
+    value: 8
+  - name: Excellent
+    short: EX
+    value: 16
+  - name: Remarkable
+    short: RM
+    value: 26
+  - name: Incredible
+    short: IN
+    value: 36
+  - name: Amazing
+    short: AM
+    value: 46
+  - name: Monstrous
+    short: MO
+    value: 63
+  primary_attributes:
+  - name: Fighting
+    desc: this ia a primary attribute
+  - name: Agility
+    desc: this is something
+  - name: Strength
+    desc: something
+  - name: Endurance
+    desc: description
+  - name: Reason
+    desc: ksldslls
+  - name: Intuition
+    desc: something
+  - name: Psyche
+    desc: explanation
+  secondary_attributes:
+  - name: Health
+    desc: stuff
+    attributes: Fighting Agility Strength Endurance Reason
+  - name: Karma
+    desc: something
+    attributes: Intuition Psyche

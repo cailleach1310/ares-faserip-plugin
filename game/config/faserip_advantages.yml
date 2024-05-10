@@ -1,0 +1,11 @@
+---
+faserip:
+  advantages:
+  - name: First Advantage
+    desc: This is for testing purposes
+  - name: Resources
+    desc: Test test test
+  - name: Brilliance
+    desc: More testing.
+  advantages_blurb: Some text about advantages here.
+  max_advantage_rank: 3

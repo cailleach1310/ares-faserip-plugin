@@ -1,0 +1,16 @@
+<div class="row fs3-abilitybox"> 
+  <div class="col col-sm-7">
+    {{yield}}
+  </div>
+
+  <div class="col col-sm-5">
+    <div class="fs3-rating-control">
+      <div class="fs3-rating-display">
+         <PowerSelect @selected={{this.selectedRank}} @searchEnabled=true @searchField="short" @options={{this.attrRanks}} @onChange={{action "abilityChanged"}} as |r|>
+          {{r.short}} <i>({{r.name}})</i>
+         </PowerSelect>
+      </div>
+    </div>
+    
+  </div>
+</div>

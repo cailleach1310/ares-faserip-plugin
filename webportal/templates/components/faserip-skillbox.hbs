@@ -1,0 +1,20 @@
+<div class="row fs3-abilitybox"> 
+  <div class="col col-sm-7">
+    {{yield}}
+  </div>
+
+  <div class="col col-sm-5">
+    <div class="fs3-rating-control">
+      <div class="fs3-rating-display">
+         <PowerSelect @selected={{this.rank}} @searchEnabled=false @options={{this.skillRanks}} @onChange={{action "abilityChanged"}} as |r|>
+          {{#if (eq r 0)}}
+             Unlearned
+          {{else}}
+             Rank {{r}}
+          {{/if}}
+         </PowerSelect>
+      </div>
+    </div>
+    
+  </div>
+</div>

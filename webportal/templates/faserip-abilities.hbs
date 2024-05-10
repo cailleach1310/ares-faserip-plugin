@@ -1,0 +1,109 @@
+{{page-title 'Faserip Abilities'}}
+<h1>Faserip Abilities</h1>
+
+<h2>Attributes</h2>
+
+<AnsiFormat @text={{this.model.attrs_blurb}} />
+
+<table class="table table-striped">
+
+<thead>
+    <th>Attribute</th>
+    <th>Description</th>
+</thead>
+
+<tbody>
+{{#each this.model.attributes as |attr| }}
+<tr>
+    <td>{{attr.name}}</td> 
+    <td>{{attr.desc}}</td>
+</tr>
+{{/each}}
+</tbody>
+</table>
+
+<h2>Skills</h2>
+
+<AnsiFormat @text={{this.model.skills_blurb}} />
+
+<table class="table table-striped">
+
+<thead>
+    <th>Skill</th>
+    <th>Description</th>
+</thead>
+
+<tbody>
+{{#each this.model.skills as |ability| }}
+<tr>
+    <td>{{ability.name}}</td> 
+    <td>{{ability.desc}}</td>
+</tr>
+{{/each}}
+</tbody>
+</table>
+
+<h2>Advantages</h2>
+
+<AnsiFormat @text={{this.model.advantages_blurb}} />
+
+<table class="table table-striped">
+
+<thead>
+    <th>Advantage</th>
+    <th>Description</th>
+</thead>
+
+<tbody>
+{{#each this.model.advantages as |adv| }}
+<tr>
+   <td>{{adv.name}}</td> 
+   <td>{{adv.desc}}</td>
+</tr>
+{{/each}}
+</tbody>
+</table>
+
+<h2>Disadvantages</h2>
+
+<AnsiFormat @text={{this.model.disadvantages_blurb}} />
+
+<table class="table table-striped">
+
+<thead>
+    <th>Disadvantage</th>
+    <th>Description</th>
+</thead>
+
+<tbody>
+{{#each this.model.disadvantages as |dis| }}
+<tr>
+   <td>{{dis.name}}</td>
+   <td>{{dis.desc}}</td>
+</tr>
+{{/each}}
+</tbody>
+</table>
+
+<h2>Powers</h2>
+
+<AnsiFormat @text={{this.model.powers_blurb}} />
+
+<table class="table table-striped">
+
+<thead>
+    <th>Power</th>
+    <th>Description</th>
+</thead>
+
+<tbody>
+{{#each this.model.powers as |spec| }}
+<tr>
+   <td>{{spec.name}}</td>
+   <td>{{spec.desc}}</td>
+</tr>
+{{/each}}
+</tbody>
+</table>
+
+{{outlet}}

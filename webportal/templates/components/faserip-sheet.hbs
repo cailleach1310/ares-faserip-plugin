@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col col-md-6 col-sm-12">
+    <FaseripAttrTable @title="Primary Attributes" @list={{this.char.custom.faserip.attrs}} @max={{0}} />  
+    <FaseripAbilityTable @title="Secondary Attributes" @list={{this.char.custom.faserip.secondary_attributes}} @max={{0}} />
+  </div>
+  <div class="col col-md-6 col-sm-12">
+    {{#if this.char.custom.faserip.skills}}
+      <FaseripAbilityTable @title="Skills" @list={{this.char.custom.faserip.skills}} @max={{5}} />
+    {{/if}}
+    {{#if this.char.custom.faserip.powers}}
+      <FaseripOptionTable @title="Powers" @list={{this.char.custom.faserip.powers}} />  
+    {{/if}}
+    {{#if this.char.custom.faserip.advantages}} 
+       <FaseripOptionTable @title="Advantages" @list={{this.char.custom.faserip.advantages}} />
+    {{/if}}
+    {{#if this.char.custom.faserip.disadvantages}}
+      <FaseripOptionTable @title="Disadvantages" @list={{this.char.custom.faserip.disadvantages}} />
+    {{/if}}
+  </div>
+</div>

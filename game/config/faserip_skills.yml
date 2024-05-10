@@ -1,0 +1,15 @@
+---
+faserip:
+  max_skill_rank: 3
+  skills:
+  - name: Test Skill
+    desc: This is a skill. For testing purposes
+  - name: Another
+    desc: Another test skill.
+  - name: Skill Three
+    desc: Number three test skill.
+  - name: Skill Four
+    desc: Number four test skill.
+  - name: Skill Five
+    desc: Number five test skill.
+  skills_blurb: Some text about skills here.

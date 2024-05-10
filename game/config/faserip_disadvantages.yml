@@ -1,0 +1,9 @@
+---
+faserip:
+  max_disadvantage_rank: 3
+  disadvantages:
+  - name: Debts
+    desc: You owe money to someone
+  - name: Disfigurement
+    desc: People won't want to engage with you.
+  disadvantages_blurb: This is some text about disadvantages.
