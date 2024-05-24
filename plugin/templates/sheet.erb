@@ -1,0 +1,35 @@
+%lh
+%xh<%= char.name %>%xn <%= center( approval_status, 23 ) %>
+%r<%= section_line 'Attributes' -%>
+
+<% attributes.each do |a| -%>
+<%= a -%>
+<% end %> 
+%r%r<%= section_line 'Skills' -%>
+
+<% skills.each do |a| -%>
+<%= a -%>
+<% end %>
+<% if powers.length > 0 -%>
+%r%r<%= section_line 'Powers' -%>
+
+<% powers.each do |f| -%>
+%r<%= f -%>
+<% end %>
+<% end -%>
+<% if advantages.length > 0 -%>
+%r<%= section_line 'Advantages' -%>
+
+<% advantages.each do |k| -%>
+%r<%= k -%>
+<% end %>
+<% end -%>
+<% if disadvantages.length > 0 -%>
+%r<%= section_line 'Disadvantages' -%>
+
+<% disadvantages.each do |m| -%>
+%r<%= m -%>
+<% end %>
+<% end -%>
+
+%lf
