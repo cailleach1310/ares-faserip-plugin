@@ -8,8 +8,8 @@
 
      {{#each this.charList as |option|}}
      {{#unless (eq option.rating 0)}}
-     <FaseripOptionbox @rating={{option.rating}} @details={{option.details}} @name={{option.name}} @ranks={{option.ranks}} @list={{this.opList}} @maxRating=5 @updated={{action "abilityChanged"}} >
-         <b>{{option.name}}</b> (R{{option.rating}}) - {{option.details}}
+     <FaseripOptionbox @rank={{option.rank}} @notes={{option.notes}} @name={{option.name}} @ranks={{option.ranks}} @list={{this.opList}} @maxRating=5 @updated={{action "abilityChanged"}} >
+         <b>{{option.name}}</b> (R{{option.rank}}) - {{option.notes}}
      </FaseripOptionbox>
      {{/unless}}
      {{/each}}
@@ -38,6 +38,6 @@
     <br><br>
        <i>{{this.optionDesc}}</i>
     <br><br>
-    <p>Details:</p>
-    <Input @type="text" size={{200}} id="optionDetails" @enter={{action "addOption"}} @value={{this.optionDetails}} />
+    <p>Notes:</p>
+    <Input @type="text" size={{200}} id="optionNotes" @enter={{action "addOption"}} @value={{this.optionNotes}} />
   </BsModalSimple>

@@ -4,8 +4,8 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
   editOption: false,
-  optionRating: 0,
-  optionDetails: "",
+  optionRank: 0,
+  optionNotes: "",
   flashMessages: service(),
 
     optionDesc: computed('name',function() {
@@ -31,35 +31,35 @@ export default Component.extend({
     actions: { 
         edit() {
             this.set('editOption', true);
-            this.set('optionRating', this.rating);
-            this.set('optionDetails', this.details);
+            this.set('optionRank', this.rank);
+            this.set('optionNotes', this.notes);
             this.updated();
         },
     
         update() {
-            this.set('details', this.optionDetails);
-            this.set('rating', this.optionRating);
+            this.set('notes', this.optionNotes);
+            this.set('rank', this.optionRank);
             this.set('editOption', false);
             this.updated();
         },
 
         raise() {
             var ranks = this.optionRanks;
-            var index = ranks.indexOf(this.optionRating);
+            var index = ranks.indexOf(this.optionRank);
             if (index == -1) {
-                this.set('optionRating', ranks[0]);
+                this.set('optionRank', ranks[0]);
             } else if (index < ranks.length - 1) {
-                this.set('optionRating', ranks[index + 1]);
+                this.set('optionRank', ranks[index + 1]);
             }
         },
 
         lower() {
             var ranks = this.optionRanks;
-            var index = ranks.indexOf(this.optionRating);
+            var index = ranks.indexOf(this.optionRank);
             if (index > 0) {
-                this.set('optionRating', ranks[index - 1]);
+                this.set('optionRank', ranks[index - 1]);
             } else {
-                this.set('optionRating', 0);
+                this.set('optionRank', 0);
             }
         }
     }

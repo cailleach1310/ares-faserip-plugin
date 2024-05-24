@@ -6,7 +6,7 @@ import { capitalize } from '@ember/string'; // ember 4
 
 export default Component.extend({
   tagName: '',
-  optionDetails: null,
+  optionNotes: null,
   optionString: null,
   selectOption: false,
   flashMessages: service(),
@@ -19,7 +19,7 @@ export default Component.extend({
     this.set('optionString', this.opList.mapBy('name')[0]); // initialize value
    },
  
-  optionPoints: computed('charList.@each.rating', function() {
+  optionPoints: computed('charList.@each.rank', function() {
     return this.countPointsInGroup(this.get('charList'));
   }),
 
@@ -28,8 +28,8 @@ export default Component.extend({
        return 0;
      }
      let total = 0;
-     list.forEach(function (ability) {
-       total = total + ability.rating;
+     list.forEach(function (option) {
+       total = total + option.rank;
      });
      return total;
    },
@@ -77,7 +77,7 @@ export default Component.extend({
     addOption() {
       let option_list = this.opList.mapBy('name');
       let optionString = this.optionString || option_list[0];
-      let optionDetails = this.optionDetails || null;
+      let optionNotes = this.optionNotes || null;
       let optionMin = 1;
       if (!optionString) {
         this.flashMessages.danger("You have to specify a valid " + this.type + ".");
@@ -85,14 +85,14 @@ export default Component.extend({
         return;
       }
       optionMin = this.optionMin;
-      if (!optionDetails) {
-         this.flashMessages.danger("You have to specify details for the " + this.type + ".");
+      if (!optionNotes) {
+         this.flashMessages.danger("You have to specify notes for the " + this.type + ".");
          this.set('selectOption', false);
          return;
       }
-      this.set('optionDetails', null);
+      this.set('optionNotes', null);
       this.set('selectOption', false);
-      this.get('charList').pushObject( EmberObject.create( { name: optionString, rating: optionMin, details: optionDetails }) );
+      this.get('charList').pushObject( EmberObject.create( { name: optionString, rank: optionMin, notes: optionNotes }) );
       this.validateChar();
     }
 

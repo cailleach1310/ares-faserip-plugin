@@ -34,7 +34,7 @@ module AresMUSH
       def powers
         list = []
         @char.powers.each do |m|
-           list << format_option(m)
+           list << format_power(m)
         end
         list
       end
@@ -71,8 +71,12 @@ module AresMUSH
        "#{linebreak}#{name}#{rank.rjust(dots,".")}  "
       end
 
+      def format_power(a)
+        return "  %xh#{a.name}%xn (#{Faserip.get_rank_name(a.rank)}): #{a.notes}%r"
+      end
+
       def format_option(a)
-        return "  %xh#{a.name}%xn(Rank #{a.rank}): #{a.notes}%r"
+        return "  %xh#{a.name}%xn (Rank #{a.rank}): #{a.notes}%r"
       end
 
       def section_line(title)

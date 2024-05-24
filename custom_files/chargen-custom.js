@@ -18,7 +18,7 @@ export default Component.extend({
     return {
       attrs: this.createAbilityHash(this.get('char.custom.faserip.attrs')),
       skills: this.createAbilityHash(this.get('char.custom.faserip.skills')),
-      specializations: this.createAbilityHash(this.get('char.custom.faserip.powers')),
+      powers: this.createOptionHash(this.get('char.custom.faserip.powers')),
       advantages: this.createOptionHash(this.get('char.custom.faserip.advantages')),
       disadvantages: this.createOptionHash(this.get('char.custom.faserip.disadvantages')),
     };
@@ -45,7 +45,7 @@ export default Component.extend({
     }
     return option_list.reduce(function(map, obj) {
       if (obj.name && obj.name.length > 0) {
-        let optionStuff = obj.rank.toString() + ":" + obj.details;
+        let optionStuff = obj.rank.toString() + ":" + obj.notes;
         map[obj.name] = optionStuff;
       }
       return map;

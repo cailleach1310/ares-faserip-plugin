@@ -18,11 +18,11 @@
     <div class="fs3-rating-display">
       <button class="fs3-skillbutton" {{action "lower"}}>-</button>
 
-        {{this.optionRating}}
+        {{this.optionRank}}
 
       <button class="fs3-skillbutton" {{action "raise"}}>+</button>
     </div>
  <br><br>
     <p>Details:</p>
-     <Input @type="text" size={{200}} id="optionDetails" @enter={{action "update"}} @value={{this.optionDetails}} />
+     <Input @type="text" size={{200}} id="optionNotes" @enter={{action "update"}} @value={{this.optionNotes}} />
   </BsModalSimple>
