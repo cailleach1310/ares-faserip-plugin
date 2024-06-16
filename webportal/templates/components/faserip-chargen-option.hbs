@@ -7,9 +7,9 @@
      <p class="cg-tip"><AnsiFormat @text={{this.blurb}} /></p>
 
      {{#each this.charList as |option|}}
-     {{#unless (eq option.rating 0)}}
-     <FaseripOptionbox @rank={{option.rank}} @notes={{option.notes}} @name={{option.name}} @ranks={{option.ranks}} @list={{this.opList}} @maxRating=5 @updated={{action "abilityChanged"}} >
-         <b>{{option.name}}</b> (R{{option.rank}}) - {{option.notes}}
+     {{#unless (eq option.rank 0)}}
+     <FaseripOptionbox @rank={{option.rank}} @notes={{option.notes}} @name={{option.name}} @ranks={{this.optionRanks}} @list={{this.opList}} @maxRating=5 @updated={{action "abilityChanged"}} >
+         <b>{{option.name}}</b>
      </FaseripOptionbox>
      {{/unless}}
      {{/each}}

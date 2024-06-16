@@ -123,11 +123,11 @@
 </div>
 
   <div role="tabpanel" class="tab-pane" id="faseripadvantages">
-  <FaseripChargenOption @type="advantage" @blurb={{this.cg_info.advantages_blurb}} @opList={{this.cg_info.advantages}} @charList={{this.char.advantages}} />
+  <FaseripChargenOption @optionRanks={{this.cg_info.skill_ranks}} @type="advantage" @blurb={{this.cg_info.advantages_blurb}} @opList={{this.cg_info.advantages}} @charList={{this.char.advantages}} />
   </div>
 
   <div role="tabpanel" class="tab-pane" id="faseripdisadvantages">
-  <FaseripChargenOption @type="disadvantage" @blurb={{this.cg_info.disadvantages_blurb}} @opList={{this.cg_info.disadvantages}} @charList={{this.char.disadvantages}} />
+  <FaseripChargenOption @optionRanks={{this.cg_info.skill_ranks}} @type="disadvantage" @blurb={{this.cg_info.disadvantages_blurb}} @opList={{this.cg_info.disadvantages}} @charList={{this.char.disadvantages}} />
   </div>
 
   <div role="tabpanel" class="tab-pane" id="faserippowers">

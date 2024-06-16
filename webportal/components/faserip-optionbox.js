@@ -4,7 +4,6 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
   editOption: false,
-  optionRank: 0,
   optionNotes: "",
   flashMessages: service(),
 
@@ -31,36 +30,25 @@ export default Component.extend({
     actions: { 
         edit() {
             this.set('editOption', true);
-            this.set('optionRank', this.rank);
             this.set('optionNotes', this.notes);
             this.updated();
         },
     
-        update() {
-            this.set('notes', this.optionNotes);
-            this.set('rank', this.optionRank);
-            this.set('editOption', false);
+        removeOption() {
+            this.set('rank', 0);
             this.updated();
         },
 
-        raise() {
-            var ranks = this.optionRanks;
-            var index = ranks.indexOf(this.optionRank);
-            if (index == -1) {
-                this.set('optionRank', ranks[0]);
-            } else if (index < ranks.length - 1) {
-                this.set('optionRank', ranks[index + 1]);
-            }
+        abilityChanged(val) {
+           this.set('rank', val);
+           this.updated();
         },
 
-        lower() {
-            var ranks = this.optionRanks;
-            var index = ranks.indexOf(this.optionRank);
-            if (index > 0) {
-                this.set('optionRank', ranks[index - 1]);
-            } else {
-                this.set('optionRank', 0);
-            }
+        update() {
+           this.set('notes', this.optionNotes);
+           this.set('rank', this.rank);
+           this.set('editOption', false);
+           this.updated();
         }
     }
 });

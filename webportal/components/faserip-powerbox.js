@@ -54,11 +54,15 @@ export default Component.extend({
           this.set('rank', val.value);
        },
     
-        update() {
-            this.set('notes', this.powerNotes);
-            this.set('rank', this.rank);
-            this.set('editPower', false);
-            this.updated();
-        }
+       remove(val) {
+          this.set('rank', 0);
+       },
+
+       update() {
+          this.set('notes', this.powerNotes);
+          this.set('rank', this.rank);
+          this.set('editPower', false);
+          this.updated();
+       }
     }
 });

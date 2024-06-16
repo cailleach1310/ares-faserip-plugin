@@ -1,28 +1,28 @@
 <div class="row fs3-abilitybox"> 
-  <div class="col col-sm-7">
+  <div class="col col-sm-2">
     {{yield}}
   </div>
-
-  <div class="col col-sm-5">
+  <div class="col col-sm-3">
     <div class="fs3-rating-control">
-      <button class="fs3-skillbutton" {{action "edit"}}>Edit</button>
+      <div class="fs3-rating-display">
+         <PowerSelect @selected={{this.rank}} @searchEnabled=false @options={{this.optionRanks}} @onChange={{action "abilityChanged"}} as |r|>
+            Rank {{r}}
+         </PowerSelect>
+      </div>
     </div>
-    
-  </div>
+   </div>
+   <div class="col col-sm-4">
+      {{this.notes}}
+   </div>
+   <div class="col col-sm-2">
+      <button class="fs3-skillbutton" {{action "edit"}}>Edit</button>
+      <button class="fs3-skillbutton" {{action "removeOption"}}>Remove</button>
+   </div>    
 </div>
 
 <BsModalSimple @title="Edit {{this.name}}" @closeTitle="Cancel" @submitTitle="Update" @size={{null}} @fade={{true}} @open={{this.editOption}} @onSubmit={{action "update"}} @onHide={{action (mut this.editOption) false}}>
      <p><i>{{this.optionDesc}}</i></p>
-     <br>
-     Rank:
-    <div class="fs3-rating-display">
-      <button class="fs3-skillbutton" {{action "lower"}}>-</button>
-
-        {{this.optionRank}}
-
-      <button class="fs3-skillbutton" {{action "raise"}}>+</button>
-    </div>
- <br><br>
+    <br><br>
     <p>Details:</p>
      <Input @type="text" size={{200}} id="optionNotes" @enter={{action "update"}} @value={{this.optionNotes}} />
   </BsModalSimple>
