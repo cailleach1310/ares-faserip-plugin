@@ -1,6 +1,6 @@
 module AresMUSH
   class Character
-    collection :attributes, "AresMUSH::FaseripAttribute"
+    collection :primary_attributes, "AresMUSH::FaseripAttribute"
     collection :skills, "AresMUSH::FaseripSkill"
     collection :powers, "AresMUSH::FaseripPower"
     collection :advantages, "AresMUSH::FaseripAdvantage"

@@ -35,7 +35,7 @@ module AresMUSH
       def ability_list(char, type)
         list = []
         if (type == "attribute")
-           char.attributes.each do |a|
+           char.primary_attributes.each do |a|
              list << { name: a.name, rank: a.rank, rank_name: Faserip.get_rank_name(a.rank), rank_short: Faserip.get_rank_short(a.rank) }
            end
         elsif (type == "skill")
@@ -89,3 +89,4 @@ module AresMUSH
     end
   end
 end
+

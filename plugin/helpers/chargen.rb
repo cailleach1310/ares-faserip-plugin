@@ -2,11 +2,11 @@ module AresMUSH
   module Faserip
 
     def self.abilities_not_set(char)
-       return char.attributes.empty?
+       return char.primary_attributes.empty?
     end
 
     def self.reset_char(char)
-      char.attributes.each { |s| s.delete }
+      char.primary_attributes.each { |s| s.delete }
       char.skills.each { |s| s.delete }
       char.powers.each { |s| s.delete }
       char.advantages.each { |s| s.delete }

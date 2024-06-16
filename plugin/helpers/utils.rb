@@ -108,7 +108,7 @@ module AresMUSH
       ability_type = ability_type(ability_name)
       case ability_type
       when :attribute
-        char.attributes.find(name: ability_name).first
+        char.primary_attributes.find(name: ability_name).first
       when :skill
         char.skills.find(name: ability_name).first
       when :power

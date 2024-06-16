@@ -17,7 +17,7 @@ module AresMUSH
       
       def attributes
        list = []
-        @char.attributes.each_with_index do |a,i|
+        @char.primary_attributes.each_with_index do |a,i|
           list << format_attr(a,i)
         end
         list
